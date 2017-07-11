@@ -7,3 +7,5 @@
 ## Feature:
   no js, simple and pure.
   markdown.
+
+💪🏿 online example: [thxs.me](htts:/thxs.me)
