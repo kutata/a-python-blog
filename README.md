@@ -1,7 +1,7 @@
 ## Prepare:
   pip install markdown
 
-## How to user:
+## How to use:
   `python daemon.py index.py`  or  `python index.py`
 
 ## Feature:
