@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -118,7 +119,6 @@ def index():
     'postTime': postTime
   }
 
-  print dict(config.copy(), ** _config)
   return dict(config.copy(), ** _config)
 
 # about
@@ -145,4 +145,4 @@ def mypost(id=''):
   else:
     return HTTPError(404, 'Page not found!')
 
-run(host='0.0.0.0', port='3030')
+run(host='0.0.0.0', port=config['port'])
