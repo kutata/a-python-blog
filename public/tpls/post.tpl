@@ -1,4 +1,4 @@
-% include public/tpls/inc/header.tpl title=title, desc=desc
+% include public/tpls/inc/header.tpl title=title
 
 <div class="content entry-list">
   <article>

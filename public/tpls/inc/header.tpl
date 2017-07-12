@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+% if title:
 <title>{{'' if not title else title+' - '}}{{siteName}}</title>
+% else:
+<title>{{siteName}}</title>
+% end
 <meta charset="utf-8">
 <meta content="Hello" name="description">
 % if keywords:

@@ -14,12 +14,6 @@ markdownDir = 'public/markdown/'
 postList = {}
 postTime = {}
 
-from config import config
-
-SimpleTemplate.defaults['keywords'] = ''
-SimpleTemplate.defaults['siteName'] = config['siteName']
-SimpleTemplate.defaults['bio'] = config['bio']
-
 def getPost(f):
   global postList, postTime
 
@@ -82,6 +76,12 @@ postTime = sorted([(value,key) for (key,value) in postTime.items()], reverse=Tru
 # *****************************************
 # @Router
 # *****************************************
+from config import config
+
+SimpleTemplate.defaults['keywords'] = ''
+SimpleTemplate.defaults['siteName'] = config['siteName']
+SimpleTemplate.defaults['bio'] = config['bio']
+
 @route('/public/assets/images/<filename>')
 @route('/public/assets/images/:path/<filename>')
 def source(filename, path=''):
@@ -103,8 +103,6 @@ def css(filename):
 def tpls(filename):
   return static_file(filename, root='tpls/inc')
 
-
-
 # 404
 @error(404)
 @view('public/tpls/404.tpl')
@@ -120,6 +118,7 @@ def index():
     'postTime': postTime
   }
 
+  print dict(config.copy(), ** _config)
   return dict(config.copy(), ** _config)
 
 # about
@@ -130,8 +129,7 @@ def about():
   _config = {'title': 'About'}
   return dict(config.copy(), ** _config)
 
-
-
+# post
 @route('/post/<id:path>/')
 @route('/post/<id:path>')
 @route('/post/')
