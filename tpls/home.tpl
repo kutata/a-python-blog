@@ -1,4 +1,4 @@
-% include public/tpls/inc/header.tpl title=title
+% include tpls/inc/header.tpl title=title
 
 <div class="content entry-list">
   % for k in postTime:
@@ -20,8 +20,8 @@
 
 </div>
 
-% include public/tpls/inc/second.tpl
+% include tpls/inc/second.tpl
 
 <div class="clear"></div>
 
-%include public/tpls/inc/footer.tpl online=online
+%include tpls/inc/footer.tpl online=online

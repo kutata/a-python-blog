@@ -1,4 +1,4 @@
-%include public/tpls/inc/header.tpl title='404'
+%include inc/header.tpl title='404'
 
 <div class="content entry-list">
   <article>
@@ -8,8 +8,8 @@
   </article>
 </div>
 
-%include public/tpls/inc/second.tpl
+%include tpls/inc/second.tpl
 
 <div class="clear"></div>
 
-%include public/tpls/inc/footer.tpl online=online
+%include tpls/inc/footer.tpl online=online

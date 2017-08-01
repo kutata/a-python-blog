@@ -1,4 +1,4 @@
-%include public/tpls/inc/header.tpl title=title
+%include tpls/inc/header.tpl title=title
 
 <div class="content entry-list">
   <article>
@@ -12,8 +12,8 @@
   % end
 </div>
 
-%include public/tpls/inc/second.tpl
+%include tpls/inc/second.tpl
 
 <div class="clear"></div>
 
-%include public/tpls/inc/footer.tpl online=online
+%include tpls/inc/footer.tpl online=online

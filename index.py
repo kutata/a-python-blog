@@ -11,7 +11,7 @@ import os, time
 import markdown, datetime
 
 
-markdownDir = 'public/markdown/'
+markdownDir = 'markdown/'
 postList = {}
 postTime = {}
 
@@ -83,36 +83,36 @@ SimpleTemplate.defaults['keywords'] = ''
 SimpleTemplate.defaults['siteName'] = config['siteName']
 SimpleTemplate.defaults['bio'] = config['bio']
 
-@route('/public/assets/images/<filename>')
-@route('/public/assets/images/:path/<filename>')
+@route('/public/images/<filename>')
+@route('/public/images/:path/<filename>')
 def source(filename, path=''):
-  return static_file(filename, root="public/assets/images/"+path)
+  return static_file(filename, root="public/images/"+path)
 
-@route('/public/assets/css/<filename>')
+@route('/public/css/<filename>')
 def css(filename):
-  return static_file(filename, root='public/assets/css')
+  return static_file(filename, root='public/css')
 
-@route('/public/assets/javascripts/<filename>')
+@route('/public/javascripts/<filename>')
 def javascripts(filename):
-  return static_file(filename, root='public/assets/javascripts')
+  return static_file(filename, root='public/javascripts')
 
-@route('/public/assets/font/<filename>')
+@route('/public/font/<filename>')
 def css(filename):
-  return static_file(filename, root='public/assets/font')
+  return static_file(filename, root='public/font')
 
-@route('/public/tpls/inc/<filename>')
+@route('/tpls/inc/<filename>')
 def tpls(filename):
   return static_file(filename, root='tpls/inc')
 
 # 404
 @error(404)
-@view('public/tpls/404.tpl')
+@view('/tpls/404.tpl')
 def error404(error):
   return config
 
 # home
 @route('/')
-@view('public/tpls/index.tpl')
+@view('tpls/home.tpl')
 def index():
   _config = {
     'postList': postList,
@@ -124,7 +124,7 @@ def index():
 # about
 @route('/about/')
 @route('/about')
-@view('public/tpls/about.tpl')
+@view('tpls/about.tpl')
 def about():
   _config = {'title': 'About'}
   return dict(config.copy(), ** _config)
@@ -134,7 +134,7 @@ def about():
 @route('/post/<id:path>')
 @route('/post/')
 @route('/post')
-@view('public/tpls/post.tpl')
+@view('tpls/post.tpl')
 def mypost(id=''):
   if id in postList:
     post = postList[id]

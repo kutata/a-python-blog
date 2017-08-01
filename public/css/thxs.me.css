@@ -26,7 +26,7 @@ text-shadow: none;
 }
 
 ul > li { list-style: none; }
-a { text-decoration: none; color: #ccc; }
+a { text-decoration: none; color: #d63135; }
 a:hover {color:#009b77;
   border-bottom: 1px solid #009b77;
 }
@@ -45,7 +45,6 @@ pre code {
   display: block;
   margin: 10px 15px;
   padding: 10px;
-  width: 500px;
   line-height: 20px;
   whitewhite-space: pre-wrap; /* css-3 */ 
   whitewhite-space: -moz-pre-wrap; /* Mozilla, since 1999 */ 
@@ -67,13 +66,16 @@ header {
 }
 
 header .title a { color: #333; }
-header .bio { margin: 10px 0 0 2px; }
+header .desc { margin: 10px 0 0 2px; }
 
+.content {}
+/*
 .content {
   float: left;  
   margin: 40px 0 0 20px;
-  width: 600px;
+  max-width: 600px;
 }
+*/
 
 .entry-list article {
   margin-bottom: 30px;
@@ -109,6 +111,10 @@ nav.friend-links a {
 }
 
 aside {
+  padding: 10px;
+}
+/*
+aside {
   float: left;
   margin-left: 20px;
   padding: 10px;
@@ -116,6 +122,13 @@ aside {
 aside.second {
   margin-top: 40px;
   width: 242px;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+*/
+
+aside.second {
+  margin-top: 40px;
   background: #f9f9f9;
   border-radius: 4px;
 }
@@ -152,12 +165,16 @@ footer { clear: both; margin: 20px 20px 0 20px;
 
 .comment a {color:#000;}
 
-.pic { display: block; margin-bottom: 10px;
+.pic { }
+.pic img {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  width: 90%;
   background: #f9f9f9;
   border: 1px solid #ebebeb;
   border-radius: 2px;
 }
-.pic img { display: block; margin: 10px; width: 580px; }
 
 
 ol, li { margin: 15px 0; }
@@ -187,3 +204,33 @@ blockquote ol { padding-left: 40px; }
 
 .bloggerads {display:block;padding:10px 0; text-align: center;}
 .bloggerads-ref img {width: 80px;}
+
+@media only screen and (max-width: 768px) {
+  .content {
+    margin: 20px;
+  }
+  aside {
+    margin: 20px;  
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .content {
+    float: left;  
+    margin: 40px 0 0 20px;
+    width: 600px;
+  }
+  
+  aside {
+    float: left;
+    margin-left: 20px;
+  }
+  
+  aside.second {
+    width: 242px;
+  }
+
+  pre code {
+    max-width: 500px; 
+  }
+}
