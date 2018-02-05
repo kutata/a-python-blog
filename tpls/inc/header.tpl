@@ -22,6 +22,6 @@
 </head>
 <body>
 <header>
-	<h1 class="title"><a href="/">Hello</a></h1>
+	<h1 class="title"><a href="/">{{siteName}}</a></h1>
 	<p class="bio">{{bio}}</p>
 </header>
