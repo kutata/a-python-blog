@@ -115,6 +115,7 @@ def error404(error):
 @view('tpls/home.tpl')
 def index():
   _config = {
+    'mantenance': True,
     'postList': postList,
     'postTime': postTime
   }
