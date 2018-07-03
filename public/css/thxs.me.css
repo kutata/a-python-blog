@@ -66,7 +66,8 @@ header {
 }
 
 header .title a { color: #333; }
-header .desc { margin: 10px 0 0 2px; }
+header .bio { margin: 10px 0 0 10px; }
+
 
 .content {}
 /*
