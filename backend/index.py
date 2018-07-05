@@ -80,7 +80,7 @@ postTime = sorted([(value,key) for (key,value) in postTime.items()], reverse=Tru
 from config import config
 
 SimpleTemplate.defaults['keywords'] = ''
-SimpleTemplate.defaults['siteName'] = config['siteName']
+SimpleTemplate.defaults['sitename'] = config['sitename']
 SimpleTemplate.defaults['bio'] = config['bio']
 
 @route('/public/images/<filename>')
@@ -115,7 +115,6 @@ def error404(error):
 @view('tpls/home.tpl')
 def index():
   _config = {
-    'mantenance': True,
     'postList': postList,
     'postTime': postTime
   }

@@ -2,16 +2,16 @@
 <html>
 <head>
 % if title:
-<title>{{'' if not title else title+' - '}}{{siteName}}</title>
+<title>{{'' if not title else title+' - '}}{{sitename}}</title>
 % else:
-<title>{{siteName}}</title>
+<title>{{sitename}}</title>
 % end
 <meta charset="utf-8">
 <meta content="Hello" name="description">
 % if keywords:
 <meta content="{{keywords}}" name="keywords">
 % else:
-<meta content="{{siteName}}" name="keywords">
+<meta content="{{sitename}}" name="keywords">
 % end
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="shortcut icon" href="/public/images/favicon.ico" />
@@ -22,6 +22,6 @@
 </head>
 <body>
 <header>
-	<h1 class="title"><a href="/">{{siteName}}</a></h1>
+	<h1 class="title"><a href="/">{{sitename}}</a></h1>
 	<p class="bio">{{bio}}</p>
 </header>
