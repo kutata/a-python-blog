@@ -1,4 +1,4 @@
-%include inc/header.tpl title='404'
+%include tpls/inc/header.tpl title='404'
 
 <div class="content entry-list">
   <article>

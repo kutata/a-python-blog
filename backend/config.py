@@ -9,5 +9,5 @@ config = {
   'bio': 'bio~',
 
   'title': '',
-  'mantenance': True
+  'mantenance': False
 }

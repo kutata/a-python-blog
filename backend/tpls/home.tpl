@@ -3,7 +3,7 @@
 <div class="content entry-list">
 
 % if mantenance:
-  <p>under mantenance.</p>
+  <p>Under mantenance.</p>
 % else:
   % for k in postTime:
     % v=postList[k[1]]

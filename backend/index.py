@@ -106,8 +106,8 @@ def tpls(filename):
 
 # 404
 @error(404)
-@view('/tpls/404.tpl')
-def error404(error):
+@view('tpls/404.tpl')
+def notfound(error):
   return config
 
 # home
