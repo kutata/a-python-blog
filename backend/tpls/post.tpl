@@ -1,8 +1,9 @@
 % include tpls/inc/header.tpl title=title
 
 <div class="content entry-list">
+
   <article>
-    <h2><a href="{{url}}">{{title}}</a></h2>
+    <h1><a href="{{url}}">{{title}}</a></h1>
     <div class="entry-tag">Posted @ {{ftime}}</div>
     <div class="entry-content">
       {{!content}}
