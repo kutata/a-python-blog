@@ -1,64 +1,8 @@
-* { margin: 0; padding: 0; }
-body { font-size: 12px;
-  font-family: 'Lucida Grande', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-  color: #333;
-}
-article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block;}
-h1 { font-size: 22px; font-weight: normal; }
-h2 {
-  font-family: 'Lucida Grande', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-h2 a {color:#000;}
-
-::-moz-selection { 
-background: #009b77;
-color: #fff;
-text-shadow: none;
-}
-
-::selection {
-background: #009b77;
-color: #fff;
-text-shadow: none;
-}
-
-ul > li { list-style: none; }
-a { text-decoration: none; color: #d63135; }
-a:hover {color:#009b77;
-  border-bottom: 1px solid #009b77;
-}
-
-code {
-  margin: 0 3px;
-  padding: 3px;
-  border-left: 1px solid #009b77;
-  border-left-width: 0.4em;
-  background: #f9f9f9;
-  color: #000;
-  font-family: verdana;
-}
-
-pre code {
-  display: block;
-  margin: 10px 15px;
-  padding: 10px;
-  line-height: 20px;
-  whitewhite-space: pre-wrap; /* css-3 */ 
-  whitewhite-space: -moz-pre-wrap; /* Mozilla, since 1999 */ 
-  whitewhite-space: -pre-wrap; /* Opera 4-6 */ 
-  whitewhite-space: -o-pre-wrap; /* Opera 7 */ 
-
-  word-wrap:break-word; /* Internet Explorer 5.5+ */ 
-  white-space: pre-wrap; /* Firefox */
-}
-
 .fl { float: left; }
 .fr { float: right; }
 .clear { clear: both; }
 
+/* header */
 header {
   margin: 20px 20px 0 20px;
   padding-bottom: 10px;
@@ -66,18 +10,9 @@ header {
 }
 
 header .title a { color: #333; }
-header .bio { margin: 10px 0 0 10px; }
+header .bio { margin: 10px 0 0 5px; }
 
-
-.content {}
-/*
-.content {
-  float: left;  
-  margin: 40px 0 0 20px;
-  max-width: 600px;
-}
-*/
-
+/* entry */
 .entry-list article {
   margin-bottom: 30px;
   padding-bottom: 10px;
@@ -102,7 +37,18 @@ header .bio { margin: 10px 0 0 10px; }
 }
 
 .entry-content { margin-top: 30px; font-size: 13px; text-align: justify; }
-.entry-content p { margin-bottom: 10px; line-height: 24px; }
+.entry-content h1 {
+  margin-bottom: 10px;
+}
+.entry-content h2 {
+  margin-top: 20px;
+}
+.entry-content p { margin-bottom: 10px;
+  line-height: 24px; }
+
+.entry-content ol {
+  padding-left: 20px;
+}
 
 .entry-category { margin-top: 30px; }
 
@@ -111,22 +57,10 @@ nav.friend-links a {
   margin-right: 10px;
 }
 
+/* aside */
 aside {
   padding: 10px;
 }
-/*
-aside {
-  float: left;
-  margin-left: 20px;
-  padding: 10px;
-}
-aside.second {
-  margin-top: 40px;
-  width: 242px;
-  background: #f9f9f9;
-  border-radius: 4px;
-}
-*/
 
 aside.second {
   margin-top: 40px;
@@ -151,21 +85,14 @@ aside dd {
 
 aside dd a { color: #000; }
 
-.douban td {
-  padding: 0 5px;
-}
-
-.sponsor {
-}
-
+/* footer */
 footer { clear: both; margin: 20px 20px 0 20px;
   line-height: 40px;
   border-top: 1px solid #ededed;
   font-size: 11px;
 }
 
-.comment a {color:#000;}
-
+/* pic */
 .pic { }
 .pic img {
   display: block;
@@ -177,10 +104,7 @@ footer { clear: both; margin: 20px 20px 0 20px;
   border-radius: 2px;
 }
 
-
-ol, li { margin: 15px 0; }
-li p:last-child { margin:0 }
-
+/* blockquote */
 blockquote{
   color:#666666;
   margin: 10px 15px;
@@ -188,24 +112,21 @@ blockquote{
   border-left: 0.5em #009b77 solid;
 }
 blockquote p { margin-bottom: 0!important;
-    display: inline!important; /* why? */
+  display: inline!important; /* why? */
 }
 blockquote:before {
-    left: -10px;
-    color: #f1f1f1;
-    content: open-quote;
-    font-size: 2em;
-    line-height: 0.1em;
-    margin-right: .25em;
-    vertical-align: -.4em;
-    color: #009b77;
+  left: -10px;
+  color: #f1f1f1;
+  content: open-quote;
+  font-size: 2em;
+  line-height: 0.1em;
+  margin-right: .25em;
+  vertical-align: -.4em;
+  color: #009b77;
 }
 blockquote ol { padding-left: 40px; }
-/* color: #f9f9f9; */
 
-.bloggerads {display:block;padding:10px 0; text-align: center;}
-.bloggerads-ref img {width: 80px;}
-
+/* responsitive */
 @media only screen and (max-width: 768px) {
   .content {
     margin: 20px;
