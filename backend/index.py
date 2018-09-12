@@ -67,7 +67,7 @@ for f in _map:
   if os.path.isdir(markdownDir+f): continue
 
   # left, mid, substr, slice, splice
-  if f[-4:] == '.swp': continue
+  if f[-3:] != '.md': continue
   getPost(f)
 
 postTime = sorted([(value,key) for (key,value) in postTime.items()], reverse=True)
