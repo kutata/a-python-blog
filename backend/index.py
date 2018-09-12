@@ -3,15 +3,14 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
-sys.path.append('/Library/Python/2.7/site-packages')
 
 import subprocess
-from libs.bottle import route, run, error, post, request, redirect, default_app, template, SimpleTemplate, static_file, response, view, HTTPError, get
+from bottle import route, run, error, post, request, redirect, default_app, template, SimpleTemplate, static_file, response, view, HTTPError, get
 import os, time
 import markdown, datetime
 
 
-markdownDir = 'markdown/'
+markdownDir = 'markdowns/'
 postList = {}
 postTime = {}
 
