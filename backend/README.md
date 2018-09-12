@@ -1,10 +1,11 @@
 ### Prepare:
-  pip install markdown
+  pip install markdown bottle
 
-### How to use:
-  `python daemon.py index.py`  or  `python index.py`
+### Usage:
+  It's a old project, develop in python2.
+  if run in python3 you need to comment out lines 2-3 first;
 
 ### Description:
-  no js, simple and pure, markdown.
+  no js, simple and pure, cross-browser, IE9+;
 
 💪🏿  online example: [thxs.me](http://thxs.me)
