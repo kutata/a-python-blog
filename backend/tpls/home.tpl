@@ -8,7 +8,7 @@
   % for k in postTime:
     % v=postList[k[1]]
     <article>
-      <h2><a href="{{v['url']}}">{{v['title']}}</a></h2>
+      <h1><a href="{{v['url']}}">{{v['title']}}</a></h1>
       <div class="entry-tag">Posted @ {{v['ftime']}}</div>
       <div class="entry-content">
         % if v['preview']:
