@@ -153,6 +153,8 @@ blockquote ol { padding-left: 40px; }
   }
 
   pre code {
+    /*
     max-width: 500px; 
+    */
   }
 }
