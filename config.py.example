@@ -9,5 +9,6 @@ config = {
   'bio': 'bio~',
 
   'title': '',
-  'mantenance': False
+
+  'markdowndir': './markdowns/'
 }

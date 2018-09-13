@@ -2,25 +2,20 @@
 
 <div class="content entry-list">
 
-% if mantenance:
-  <p>Under mantenance.</p>
-% else:
-  % for k in postTime:
-    % v=postList[k[1]]
-    <article>
-      <h1><a href="{{v['url']}}">{{v['title']}}</a></h1>
-      <div class="entry-tag">Posted @ {{v['ftime']}}</div>
-      <div class="entry-content">
-        % if v['preview']:
-        <div class="entry-preview">
-          {{! v['preview']}}
-        </div>
-        % else:
-          {{! v['content']}}
-        % end
+% for v in posts:
+  <article>
+    <h1><a href="{{v['url']}}">{{v['title']}}</a></h1>
+    <div class="entry-tag">Posted @ {{v['date']}}</div>
+    <div class="entry-content">
+      % if v['preview']:
+      <div class="entry-preview">
+        {{! v['preview']}}
       </div>
-    </article>
-  % end
+      % else:
+        {{! v['content']}}
+      % end
+    </div>
+  </article>
 % end
 
 </div>

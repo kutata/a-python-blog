@@ -9,75 +9,58 @@ from bottle import route, run, error, post, request, redirect, default_app, temp
 import os, time
 import markdown, datetime
 
+from config import config
 
-markdownDir = 'markdowns/'
-postList = {}
-postTime = {}
+def getPosts():
+  posts = []
 
-def getPost(f):
-  global postList, postTime
+  mdir = config['markdowndir']
+  _map = os.listdir(mdir)
+  for f in _map:
+    if os.path.isdir(mdir + f): continue
+    if f[-3:] != '.md': continue
 
-  _path = markdownDir+f
+    date, url  = f.split('_')
+    date = datetime.datetime.strptime(date, "%Y-%m-%d").strftime('%b %d, %Y')
+    url = '/post/' + url
 
-  f0 = open(_path)
-  md = f0.read()
-  f0.close()
+    fo = open(mdir + f)
+    md = fo.read()
+    fo.close()
 
-  post = {}
+    Md = markdown.Markdown(extensions = ['attr_list', 'meta'])
+    content = Md.convert(md)
 
-  f = f.split('_')
+    if hasattr(Md, 'Meta'):
+      post = Md.Meta
 
-  ftime = datetime.datetime.strptime(f[0], "%Y-%m-%d").strftime('%b %d, %Y')
+    for k in post:
+      if k != 'preview':
+        post[k] = post[k][0]
 
-  title = f[1]
-  url = '/post/'+f[1]
+    post['url'] = url
+    post['date'] = date
+    post['content'] = content
 
-  Md = markdown.Markdown(extensions = ['attr_list', 'meta'])
-  content = Md.convert(md)
+    if post.get('preview'):
+      preview = post['preview']
+      preview = ''.join(preview)
+      post['preview'] = Md.convert(preview)
+    else:
+      post['preview'] = ''
 
-  post = {}
-  if hasattr(Md, 'Meta'):
-    post = Md.Meta
+    posts.append(post)
 
-  for v in post:
-    if v != 'preview':
-      post[v] = post[v][0]
+  posts = sorted(posts, key=lambda k: k['date'], reverse=True)
 
-  if post.get('preview'):
-    preview = post['preview']
-    preview = ''.join(preview)
-    post['preview'] = Md.convert(preview)
-  else:
-    post['preview'] = ''
-
-  post['content'] = content
-
-  post = dict({
-    'ftime': ftime,
-    'url': url,
-    'title': title,
-    'content': content
-  }, **post)
-
-  postList[f[1]] = post
-  postTime[f[1]] = f[0]
-
-_map = os.listdir(markdownDir)
-for f in _map:
-  if os.path.isdir(markdownDir+f): continue
-
-  # left, mid, substr, slice, splice
-  if f[-3:] != '.md': continue
-  getPost(f)
-
-postTime = sorted([(value,key) for (key,value) in postTime.items()], reverse=True)
-
+  return posts
 
 # *****************************************
 # @Router
 # *****************************************
-from config import config
 
+SimpleTemplate.defaults['online'] = False
+SimpleTemplate.defaults['title'] = ''
 SimpleTemplate.defaults['keywords'] = ''
 SimpleTemplate.defaults['sitename'] = config['sitename']
 SimpleTemplate.defaults['bio'] = config['bio']
@@ -113,12 +96,31 @@ def notfound(error):
 @route('/')
 @view('tpls/home.tpl')
 def index():
-  _config = {
-    'postList': postList,
-    'postTime': postTime
-  }
+  # markdowndir = config['markdowndir']
+  # print markdowndir
 
-  return dict(config.copy(), ** _config)
+  # _map = os.listdir(markdowndir)
+  # for f in _map:
+  #   if os.path.isdir(markdowndir + f): continue
+
+  #   # left, mid, substr, slice, splice
+  #   if f[-3:] != '.md': continue
+  #   getPost(f)
+
+
+  # postTime = sorted([(value,key) for (key,value) in postTime.items()], reverse=True)
+
+  # _config = {
+  #   'postList': postList,
+  #   'postTime': postTime
+  # }
+
+  # return dict(config.copy(), ** _config)
+
+
+  posts = getPosts()
+  print posts
+  return { "posts": posts }
 
 # about
 @route('/about/')
