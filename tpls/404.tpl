@@ -3,7 +3,7 @@
 <div class="content entry-list">
   <article>
     <div class="entry-content">
-      <p>Error 404 page not found.</p>
+      <p>Error 404, page not found.</p>
     </div>
   </article>
 </div>
@@ -12,4 +12,4 @@
 
 <div class="clear"></div>
 
-%include tpls/inc/footer.tpl online=online
+%include tpls/inc/footer.tpl

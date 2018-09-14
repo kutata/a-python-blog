@@ -1,7 +1,6 @@
 # -*- coding: utf8 -*-
 
 config = {
-  'online': False,
   'comment': False,
   'port': 3030,
 

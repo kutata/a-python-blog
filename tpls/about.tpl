@@ -7,13 +7,10 @@
     </div>
   </article>
 
-  % if comment:
-    <!-- Disqus -->
-  % end
 </div>
 
 %include tpls/inc/second.tpl
 
 <div class="clear"></div>
 
-%include tpls/inc/footer.tpl online=online
+%include tpls/inc/footer.tpl
