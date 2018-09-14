@@ -14,7 +14,7 @@
 <meta content="{{sitename}}" name="keywords">
 % end
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="shortcut icon" href="/public/images/favicon.ico" />
+<link rel="shortcut icon" href="/public/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="/public/css/base.css" />
 <link rel="stylesheet" type="text/css" href="/public/css/thxs.me.css" />
 <script type="text/javascript">
