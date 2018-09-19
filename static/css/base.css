@@ -49,6 +49,8 @@ h3 {
   font-size: 14px;
 }
 
+hr { margin: 25px auto; }
+
 /* ul, ol */
 ul > li { list-style: none; }
 ol, li { margin: 15px 0; }
