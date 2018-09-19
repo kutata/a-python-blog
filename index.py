@@ -5,11 +5,15 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 import subprocess
+import bottle
 from bottle import route, run, error, post, request, redirect, default_app, template, SimpleTemplate, static_file, response, view, HTTPError, get
 import os, time
 import markdown, datetime
 
 from config import config
+
+bottle.TEMPLATE_PATH.append('./static/tpls');
+
 
 def getPosts(id=''):
   posts = []
@@ -30,6 +34,8 @@ def getPosts(id=''):
 
     Md = markdown.Markdown(extensions = ['attr_list', 'meta'])
     content = Md.convert(md)
+
+    # print content
 
     if hasattr(Md, 'Meta'):
       post = Md.Meta
@@ -52,10 +58,10 @@ def getPosts(id=''):
     if (id):
       if (id == fn):
         posts.append(post)
+        break
     else:
       posts.append(post)
-
-  posts = sorted(posts, key=lambda k: k['date'], reverse=True)
+      posts = sorted(posts, key=lambda k: k['date'], reverse=True)
 
   return posts
 
@@ -70,52 +76,53 @@ SimpleTemplate.defaults['bio'] = config['bio']
 # @Router
 # *****************************************
 
-@route('/public/images/<filename>')
-@route('/public/images/:path/<filename>')
+@route('/static/images/<filename>')
+@route('/static/images/:path/<filename>')
 def source(filename, path=''):
-  return static_file(filename, root="public/images/"+path)
+  return static_file(filename, root="static/images/"+path)
 
-@route('/public/css/<filename>')
+@route('/static/css/<filename>')
 def css(filename):
-  return static_file(filename, root='public/css')
+  return static_file(filename, root='static/css')
 
-@route('/public/javascripts/<filename>')
+@route('/static/js/<filename>')
 def javascripts(filename):
-  return static_file(filename, root='public/javascripts')
+  return static_file(filename, root='static/js')
 
-@route('/public/font/<filename>')
+@route('/static/font/<filename>')
 def css(filename):
-  return static_file(filename, root='public/font')
+  return static_file(filename, root='static/font')
 
-@route('/tpls/inc/<filename>')
+@route('/static/tpls/inc/<filename>')
 def tpls(filename):
-  return static_file(filename, root='tpls/inc')
+  return static_file(filename, root='static/tpls/inc')
 
 # 404
 @error(404)
-@view('tpls/404.tpl')
+@view('404')
 def notfound(error):
-  return {}
+  # return template('404', title='404');
+  return { 'title': '404' }
 
 @route('/')
-@view('tpls/home.tpl')
+@view('home.tpl')
 def home():
   posts = getPosts()
   return { "posts": posts }
 
 @route('/about')
-@view('tpls/about.tpl')
+@view('static/tpls/about.tpl')
 def about():
   return {'title': 'About'}
 
 @route('/post/<id:path>')
-@view('tpls/post.tpl')
+@view('static/tpls/post.tpl')
 def post(id=''):
   posts = getPosts(id)
 
   if len(posts) < 1:
     return HTTPError(404)
 
-  return { "posts": posts }
+  return { "post": posts[0], "title": posts[0]['title'] }
 
 run(host='0.0.0.0', port=config['port'])
