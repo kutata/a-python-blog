@@ -9,5 +9,5 @@ config = {
 
   'title': '',
 
-  'markdowndir': './markdowns/'
+  'markdowndir': './static/markdowns/'
 }
