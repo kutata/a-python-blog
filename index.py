@@ -76,26 +76,9 @@ SimpleTemplate.defaults['bio'] = config['bio']
 # @Router
 # *****************************************
 
-@route('/static/images/<filename>')
-@route('/static/images/:path/<filename>')
-def source(filename, path=''):
-  return static_file(filename, root="static/images/"+path)
-
-@route('/static/css/<filename>')
-def css(filename):
-  return static_file(filename, root='static/css')
-
-@route('/static/js/<filename>')
-def javascripts(filename):
-  return static_file(filename, root='static/js')
-
-@route('/static/font/<filename>')
-def css(filename):
-  return static_file(filename, root='static/font')
-
-@route('/static/tpls/inc/<filename>')
-def tpls(filename):
-  return static_file(filename, root='static/tpls/inc')
+@route('/static/<resource:re:.+>')
+def test(resource):
+  return static_file(resource, root="static/");
 
 # 404
 @error(404)
